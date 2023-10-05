@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block titulo %}
+HomeFilmes Netflix
+{% endblock %}
+
+{% block content %}
+<div class="py-12">
+    {% for filme in object_list %}
+    <a href="{% url 'filme:detalhesfilme' filme.pk %}"><p>{{filme.titulo}}</p></a>
+    <p>{{ filme }}</p>
+    <p>{{filme.descricao}}</p>
+    <img src="{{ filme.thumb.url }}" alt="">
+    {% endfor %}
+</div>
+{% endblock %}
